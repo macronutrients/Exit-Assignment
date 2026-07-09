@@ -12,6 +12,14 @@ function renderSnacks(snacksToshow){
         const li = document.createElement("li")
 
         li.textContent = `${snack.name} -- ${snack.category}-- ${snack.calories} cal`
+        //eaten
+    if(snack.eaten){
+        li.classList.add("eaten")
+    }
+    li.addEventListener("click",function(){
+        snack.eaten = !snack.eaten
+        renderSnacks(getFilteredSnacks())
+    })
 
         list.appendChild(li)
     })
@@ -26,7 +34,7 @@ function renderSnacks(snacksToshow){
             snacks = data
             renderSnacks(snacks)
         }catch(error){
-            error.textContent = "Error Loading Snacks"
+            error.textContent = "Error Loading snacks"
 
         }
 
@@ -58,21 +66,21 @@ form.addEventListener("submit", function(event){
         return
     }
 
-    if(calories<=0||Number.isNaN(calories))
+    if(calories <=0 ||Number.isNaN(calories)){
         error.textContent = "Their has to be calories"
     return
-})
+    }
 const newSnack = {
     id: Date.now(), 
     name: name,
     category: category,
     calories: calories
 }
-snack.push(newSnack)
+snacks.push(newSnack)
     
 form.reset()
 error.textContent=""
-const seachText = search.value
+const searchText = search.value
 
 const filteredSnacks = snacks.filter(function (snack){
 const snackName = snack.name.toLowerCase()
@@ -80,5 +88,5 @@ const searchLower = searchText.toLowerCase()
 return snackName.includes(searchLower)
 })
 renderSnacks(filteredSnacks)
-
+})
 loadSnacks()
