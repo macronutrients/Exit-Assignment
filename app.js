@@ -23,22 +23,6 @@ function renderSnacks(snacksToshow){
 
         list.appendChild(li)
     })
-    //loading from .json
-    async function loadSnacks(){
-        try{
-            const response = await fetch("./data.json")
-            if(!response.ok){
-                throw new Error("Couldn't Load snacks")
-            }
-            const data = await response.json()
-            snacks = data
-            renderSnacks(snacks)
-        }catch(error){
-            error.textContent = "Error Loading snacks"
-
-        }
-
-    }
 }
 
 search.addEventListener("input", function(){
@@ -89,4 +73,21 @@ return snackName.includes(searchLower)
 })
 renderSnacks(filteredSnacks)
 })
+//loading from .json
+    async function loadSnacks(){
+        try{
+            const response = await fetch("./data.json")
+            if(!response.ok){
+                throw new Error("Couldn't Load snacks")
+            }
+            const data = await response.json()
+            snacks = data.snacks
+            renderSnacks(snacks)
+        }catch(error){
+            error.textContent = "Error Loading snacks"
+
+        }
+
+    }
+
 loadSnacks()
