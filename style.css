@@ -1,0 +1,10 @@
+
+body{
+    font-family: Arial, sans-serif;
+    margin:20px;
+}
+
+.eaten {
+    text-decoration: line-through;
+        opacity: 0.5;
+}

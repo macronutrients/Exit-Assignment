@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=auto">
+        <title Snack Tracker></title>
+        <link rel="stylesheet" href="style.css">
+        <script src ="app.js" defer></script>
+
+    </head>
+    <body>
+        <header>
+            <h1>Snack Tracker</h1>
+            <p>This is an site where you can measure the snacks that you have eaten, add new snacks and keep a list of what you have eaten(helps track macros)</p>
+        </header>
+        <main>
+            <section>
+                <h2>Search</h2>
+                <label for="Search">Search Using Snack Name</label>
+                <input id="search" type="text" placeholder="Snack name">
+
+            </section>
+            <section>
+            <h2>Add Snack</h2>
+            <form id="form">
+                <label for="name">Snack name</label>
+                <input id="name" name="name" type="text" placeholder="Protein bar">
+
+                <label for="category">Category</label>
+                <input id="category" name ="category" type="text" placeholder="bar">
+
+                <label for="calories">Calories</label>
+                <input id="calories" name ="calories" type="number" placeholder="200">
+
+                <button type="submit">Add Snack</button>
+            </form>
+            </section>
+            <p id="error"></p>
+            <section>
+                <h2>Snack List</h2>
+                <ul id="list"></ul>
+            </section>
+        </main>
+    </body>
+</html>
